@@ -30,12 +30,10 @@ router.post('/', passport.authenticate('jwt', { session: false }), async (req, r
 
   if (!isValid) return res.status(400).json(errors);
 
-  const newTweet = new Tweet({
+  const newTweet = await Tweet.create({
     text,
     user: req.user.id,
   });
-
-  await newTweet.save();
 
   res.json(newTweet);
 });

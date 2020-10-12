@@ -66,6 +66,7 @@ router.post('/login', async (req, res) => {
       const token = jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 });
       res.json({
         success: true,
+        userId: user.id,
         token: 'Bearer ' + token,
       });
     } catch (e) {
