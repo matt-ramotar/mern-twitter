@@ -56,10 +56,6 @@ export const login = user => async dispatch => {
   }
 };
 
-export const logoutUser = () => ({
-  type: RECEIVE_USER_LOGOUT,
-});
-
 export const logout = () => dispatch => {
   // Remove the token from local storage
   localStorage.removeItem('jwtToken');
